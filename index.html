@@ -15,13 +15,17 @@ body {
 }
 
 .category-button {
-    padding: 12px 20px;
+    padding: 18px 32px;
     margin: 6px;
     background: #007bff;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 17px;
+}
+.category-button:hover {
+    background: #0056b3;
 }
 
 .bus-section { display:none; margin-top:20px; }
@@ -56,6 +60,7 @@ body {
 
 <br><br>
 
+<!-- Main Sections -->
 <button class="category-button" onclick="showSection('home')">Home</button>
 <button class="category-button" onclick="showSection('minibus')">Minibuses</button>
 <button class="category-button" onclick="showSection('single')">Single Deckers</button>
@@ -65,6 +70,16 @@ body {
 <button class="category-button" onclick="showSection('london')">London Only</button>
 <button class="category-button" onclick="showSection('operators')">Operators</button>
 <button class="category-button" onclick="showSection('updates')">Updates</button>
+
+<br><br>
+
+<!-- Manufacturer Sub-buttons -->
+<button class="category-button" onclick="filterManufacturer('adl')">Alexander Dennis</button>
+<button class="category-button" onclick="filterManufacturer('wright')">Wrightbus</button>
+<button class="category-button" onclick="filterManufacturer('optare')">Optare</button>
+<button class="category-button" onclick="filterManufacturer('volvo')">Volvo</button>
+<button class="category-button" onclick="filterManufacturer('scania')">Scania</button>
+<button class="category-button" onclick="filterManufacturer('all')">Show All</button>
 
 <hr>
 
@@ -80,96 +95,96 @@ Explore UK buses by type, operator, and region.
 <div id="minibus" class="bus-section">
 <h2>Minibuses</h2>
 
-<div class="bus-card"><div class="bus-name">Optare Solo Slimline</div>Narrow-route minibus</div>
-<div class="bus-card"><div class="bus-name">Optare Solo SR</div>Updated Solo design</div>
-<div class="bus-card"><div class="bus-name">Mellor Strata</div>Sprinter-based minibus</div>
-<div class="bus-card"><div class="bus-name">Mellor Orion</div>Community services</div>
-<div class="bus-card"><div class="bus-name">Mellor Aries</div>Compact low-floor</div>
-<div class="bus-card"><div class="bus-name">ADL Enviro200 MMC (Short)</div>Minibus replacement</div>
-<div class="bus-card"><div class="bus-name">Wright StreetLite DF</div>Small single decker</div>
-<div class="bus-card"><div class="bus-name">Ford Transit Minibus</div>School & private hire</div>
-<div class="bus-card"><div class="bus-name">Mercedes Sprinter</div>Rural routes</div>
-<div class="bus-card"><div class="bus-name">Iveco Daily Minibus</div>Local operators</div>
+<div class="bus-card" data-maker="optare"><div class="bus-name">Optare Solo Slimline</div>Narrow-route minibus</div>
+<div class="bus-card" data-maker="optare"><div class="bus-name">Optare Solo SR</div>Updated Solo design</div>
+<div class="bus-card" data-maker="mellor"><div class="bus-name">Mellor Strata</div>Sprinter-based minibus</div>
+<div class="bus-card" data-maker="mellor"><div class="bus-name">Mellor Orion</div>Community services</div>
+<div class="bus-card" data-maker="mellor"><div class="bus-name">Mellor Aries</div>Compact low-floor</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">ADL Enviro200 MMC (Short)</div>Minibus replacement</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright StreetLite DF</div>Small single decker</div>
+<div class="bus-card" data-maker="ford"><div class="bus-name">Ford Transit Minibus</div>School & private hire</div>
+<div class="bus-card" data-maker="mercedes"><div class="bus-name">Mercedes Sprinter</div>Rural routes</div>
+<div class="bus-card" data-maker="iveco"><div class="bus-name">Iveco Daily Minibus</div>Local operators</div>
 </div>
 
 <!-- SINGLE -->
 <div id="single" class="bus-section">
 <h2>Single Deckers</h2>
 
-<div class="bus-card"><div class="bus-name">ADL Enviro200 MMC</div>Most common UK single deck</div>
-<div class="bus-card"><div class="bus-name">Wright StreetLite</div>Lightweight city bus</div>
-<div class="bus-card"><div class="bus-name">Wright StreetDeck SD</div>High-capacity single deck</div>
-<div class="bus-card"><div class="bus-name">Optare MetroCity</div>Low emission bus</div>
-<div class="bus-card"><div class="bus-name">Optare Versa</div>Midibus design</div>
-<div class="bus-card"><div class="bus-name">Volvo B8RLE</div>Popular chassis</div>
-<div class="bus-card"><div class="bus-name">Scania K280UB</div>Urban single deck</div>
-<div class="bus-card"><div class="bus-name">Dennis Dart SLF</div>Classic UK bus</div>
-<div class="bus-card"><div class="bus-name">MAN A22</div>Less common UK type</div>
-<div class="bus-card"><div class="bus-name">MCV Evora</div>Modern single deck body</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">ADL Enviro200 MMC</div>Most common UK single deck</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright StreetLite</div>Lightweight city bus</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright StreetDeck SD</div>High-capacity single deck</div>
+<div class="bus-card" data-maker="optare"><div class="bus-name">Optare MetroCity</div>Low emission bus</div>
+<div class="bus-card" data-maker="optare"><div class="bus-name">Optare Versa</div>Midibus design</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B8RLE</div>Popular chassis</div>
+<div class="bus-card" data-maker="scania"><div class="bus-name">Scania K280UB</div>Urban single deck</div>
+<div class="bus-card" data-maker="dennis"><div class="bus-name">Dennis Dart SLF</div>Classic UK bus</div>
+<div class="bus-card" data-maker="man"><div class="bus-name">MAN A22</div>Less common UK type</div>
+<div class="bus-card" data-maker="mcv"><div class="bus-name">MCV Evora</div>Modern single deck body</div>
 </div>
 
 <!-- DOUBLE -->
 <div id="double" class="bus-section">
 <h2>Double Deckers</h2>
 
-<div class="bus-card"><div class="bus-name">ADL Enviro400 MMC</div>Most common modern double deck</div>
-<div class="bus-card"><div class="bus-name">Wright StreetDeck</div>Modern lightweight design</div>
-<div class="bus-card"><div class="bus-name">Volvo B5LH</div>Hybrid double deck</div>
-<div class="bus-card"><div class="bus-name">Volvo B9TL</div>Older London bus</div>
-<div class="bus-card"><div class="bus-name">Dennis Trident 2</div>Early 2000s classic</div>
-<div class="bus-card"><div class="bus-name">Scania N230UD</div>UK-spec Scania</div>
-<div class="bus-card"><div class="bus-name">Wright Gemini 2</div>Common body type</div>
-<div class="bus-card"><div class="bus-name">Wright Gemini 3</div>Modern Gemini</div>
-<div class="bus-card"><div class="bus-name">Leyland Olympian</div>Historic double deck</div>
-<div class="bus-card"><div class="bus-name">MCV EvoSeti</div>Newer UK double deck</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">ADL Enviro400 MMC</div>Most common modern double deck</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright StreetDeck</div>Modern lightweight design</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B5LH</div>Hybrid double deck</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B9TL</div>Older London bus</div>
+<div class="bus-card" data-maker="dennis"><div class="bus-name">Dennis Trident 2</div>Early 2000s classic</div>
+<div class="bus-card" data-maker="scania"><div class="bus-name">Scania N230UD</div>UK-spec Scania</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright Gemini 2</div>Common body type</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright Gemini 3</div>Modern Gemini</div>
+<div class="bus-card" data-maker="leyland"><div class="bus-name">Leyland Olympian</div>Historic double deck</div>
+<div class="bus-card" data-maker="mcv"><div class="bus-name">MCV EvoSeti</div>Newer UK double deck</div>
 </div>
 
 <!-- ELECTRIC -->
 <div id="electric" class="bus-section">
 <h2>Electric Buses</h2>
 
-<div class="bus-card"><div class="bus-name">BYD-ADL Enviro200EV</div>Electric single deck</div>
-<div class="bus-card"><div class="bus-name">BYD-ADL Enviro400EV</div>Electric double deck</div>
-<div class="bus-card"><div class="bus-name">Wright Electroliner</div>Battery electric DD</div>
-<div class="bus-card"><div class="bus-name">Wright GB Kite</div>Electric single deck</div>
-<div class="bus-card"><div class="bus-name">Yutong E10</div>Electric midibus</div>
-<div class="bus-card"><div class="bus-name">Yutong E12</div>Electric city bus</div>
-<div class="bus-card"><div class="bus-name">Switch Metrodecker</div>Electric double deck</div>
-<div class="bus-card"><div class="bus-name">Optare Metrodecker EV</div>Electric Optare</div>
-<div class="bus-card"><div class="bus-name">Irizar ie Tram</div>Electric BRT-style bus</div>
-<div class="bus-card"><div class="bus-name">Alexander Dennis Enviro100EV</div>Electric minibus</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">BYD-ADL Enviro200EV</div>Electric single deck</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">BYD-ADL Enviro400EV</div>Electric double deck</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright Electroliner</div>Battery electric DD</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright GB Kite</div>Electric single deck</div>
+<div class="bus-card" data-maker="yutong"><div class="bus-name">Yutong E10</div>Electric midibus</div>
+<div class="bus-card" data-maker="yutong"><div class="bus-name">Yutong E12</div>Electric city bus</div>
+<div class="bus-card" data-maker="switch"><div class="bus-name">Switch Metrodecker</div>Electric double deck</div>
+<div class="bus-card" data-maker="optare"><div class="bus-name">Optare Metrodecker EV</div>Electric Optare</div>
+<div class="bus-card" data-maker="irizar"><div class="bus-name">Irizar ie Tram</div>Electric BRT-style bus</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">Alexander Dennis Enviro100EV</div>Electric minibus</div>
 </div>
 
 <!-- COACH -->
 <div id="coach" class="bus-section">
 <h2>Coaches</h2>
 
-<div class="bus-card"><div class="bus-name">Plaxton Panther</div>National Express</div>
-<div class="bus-card"><div class="bus-name">Plaxton Leopard</div>Interurban coach</div>
-<div class="bus-card"><div class="bus-name">Volvo B11R</div>Long-distance coach</div>
-<div class="bus-card"><div class="bus-name">Volvo B9R</div>Older coach chassis</div>
-<div class="bus-card"><div class="bus-name">Scania K410EB</div>Touring coach</div>
-<div class="bus-card"><div class="bus-name">Scania K360EB</div>Express coach</div>
-<div class="bus-card"><div class="bus-name">Mercedes Tourismo</div>Modern coach</div>
-<div class="bus-card"><div class="bus-name">Setra S417</div>Luxury coach</div>
-<div class="bus-card"><div class="bus-name">Van Hool T9</div>Touring coach</div>
-<div class="bus-card"><div class="bus-name">Irizar i6</div>UK touring coach</div>
+<div class="bus-card" data-maker="plaxton"><div class="bus-name">Plaxton Panther</div>National Express</div>
+<div class="bus-card" data-maker="plaxton"><div class="bus-name">Plaxton Leopard</div>Interurban coach</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B11R</div>Long-distance coach</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B9R</div>Older coach chassis</div>
+<div class="bus-card" data-maker="scania"><div class="bus-name">Scania K410EB</div>Touring coach</div>
+<div class="bus-card" data-maker="scania"><div class="bus-name">Scania K360EB</div>Express coach</div>
+<div class="bus-card" data-maker="mercedes"><div class="bus-name">Mercedes Tourismo</div>Modern coach</div>
+<div class="bus-card" data-maker="setra"><div class="bus-name">Setra S417</div>Luxury coach</div>
+<div class="bus-card" data-maker="vanhool"><div class="bus-name">Van Hool T9</div>Touring coach</div>
+<div class="bus-card" data-maker="irizar"><div class="bus-name">Irizar i6</div>UK touring coach</div>
 </div>
 
 <!-- LONDON -->
 <div id="london" class="bus-section">
 <h2>London Only (TfL)</h2>
 
-<div class="bus-card"><div class="bus-name">New Routemaster (LT)</div>London exclusive</div>
-<div class="bus-card"><div class="bus-name">ADL Enviro400 MMC</div>Main TfL DD</div>
-<div class="bus-card"><div class="bus-name">BYD-ADL Enviro400EV</div>Electric TfL DD</div>
-<div class="bus-card"><div class="bus-name">Volvo B5LH</div>Hybrid TfL</div>
-<div class="bus-card"><div class="bus-name">Volvo B9TL</div>Older TfL bus</div>
-<div class="bus-card"><div class="bus-name">Wright Gemini 3</div>Common TfL body</div>
-<div class="bus-card"><div class="bus-name">Optare MetroCity</div>Single deck TfL</div>
-<div class="bus-card"><div class="bus-name">ADL Enviro200 MMC</div>Single deck TfL</div>
-<div class="bus-card"><div class="bus-name">Scania N230UD</div>London routes</div>
-<div class="bus-card"><div class="bus-name">MCV EvoSeti</div>Newer TfL DD</div>
+<div class="bus-card" data-maker="lt"><div class="bus-name">New Routemaster (LT)</div>London exclusive</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">ADL Enviro400 MMC</div>Main TfL DD</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">BYD-ADL Enviro400EV</div>Electric TfL DD</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B5LH</div>Hybrid TfL</div>
+<div class="bus-card" data-maker="volvo"><div class="bus-name">Volvo B9TL</div>Older TfL bus</div>
+<div class="bus-card" data-maker="wright"><div class="bus-name">Wright Gemini 3</div>Common TfL body</div>
+<div class="bus-card" data-maker="optare"><div class="bus-name">Optare MetroCity</div>Single deck TfL</div>
+<div class="bus-card" data-maker="adl"><div class="bus-name">ADL Enviro200 MMC</div>Single deck TfL</div>
+<div class="bus-card" data-maker="scania"><div class="bus-name">Scania N230UD</div>London routes</div>
+<div class="bus-card" data-maker="mcv"><div class="bus-name">MCV EvoSeti</div>Newer TfL DD</div>
 </div>
 
 <!-- OPERATORS -->
@@ -193,7 +208,9 @@ Explore UK buses by type, operator, and region.
 <h2>Updates</h2>
 
 <div class="bus-card"><div class="bus-name">Latest</div>Added 10+ buses to every section</div>
-<div class="bus-card"><div class="bus-name">Previous</div>́London & operator sections added</div>
+<div class="bus-card"><div class="bus-name">London & Operator sections added</div>New section for TfL and bus companies</div>
+<div class="bus-card"><div class="bus-name">Previous Thursday</div>Added more info to 3 bus models</div>
+<div class="bus-card"><div class="bus-name">Previous Friday</div>Fixed bug that wouldn't let you enter sections</div>
 </div>
 
 <script>
@@ -201,10 +218,22 @@ function showSection(id){
     document.querySelectorAll('.bus-section').forEach(s=>s.style.display='none');
     document.getElementById(id).style.display='block';
 }
+
 function searchBuses(text){
     text=text.toLowerCase();
     document.querySelectorAll('.bus-card').forEach(card=>{
         card.style.display = card.innerText.toLowerCase().includes(text) ? "block" : "none";
+    });
+}
+
+function filterManufacturer(make){
+    document.querySelectorAll('.bus-card').forEach(card=>{
+        if(make === 'all'){
+            card.style.display = 'block';
+        } else {
+            card.style.display =
+              card.dataset.maker === make ? 'block' : 'none';
+        }
     });
 }
 </script>
